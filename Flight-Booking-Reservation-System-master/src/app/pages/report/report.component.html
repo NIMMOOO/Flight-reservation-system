@@ -1,0 +1,43 @@
+<div class="loader-container" *ngIf="displayModal">
+  <div
+    class="spinner-border text-light"
+    style="width: 3rem; height: 3rem"
+    role="status"
+  ></div>
+  <h3 style="margin-top: 10px; color: white">Loading</h3>
+</div>
+
+<h1
+  style="
+    margin-left: 20px;
+    margin-top: 30px;
+    color: darkred;
+    font-weight: bolder;
+  "
+>
+  REPORT ISSUE
+</h1>
+
+<p style="margin-left: 300px; margin-top: 10px">
+  <strong>Tip:</strong> Write your issue ans we will solve soon !!!
+</p>
+
+<form
+  (submit)="handleFormSubmit()"
+  ngNativeValidate
+  style="align-content: center"
+>
+  <textarea
+    placeholder="Enter Issue"
+    name="issueTextarea"
+    [(ngModel)]="issue"
+    required
+  ></textarea
+  ><br />
+
+  <input
+    type="submit"
+    value="Submit"
+    style="font-size: 21px; font-size: bolder"
+  />
+</form>

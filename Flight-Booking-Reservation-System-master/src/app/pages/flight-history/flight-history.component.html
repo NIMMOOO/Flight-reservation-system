@@ -1,0 +1,87 @@
+<div class="loader-container" *ngIf="displayModal">
+  <div
+    class="spinner-border text-light"
+    style="width: 3rem; height: 3rem"
+    role="status"
+  ></div>
+  <h3 style="margin-top: 10px; color: white">Loading</h3>
+</div>
+
+<div class="container">
+  <h3 class="mb-4">Flight Booking History</h3>
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let booking of flightHistory">
+      <div class="card" style="width: 100%; box-shadow: '0px 0px 7px #ccc'">
+        <div class="card-body">
+          <h4 class="card-title font-weight-bold">
+            {{ booking.tickets[0].ticketNo.split("--")[1] }}
+          </h4>
+          <div class="card-text">
+            <h6
+              style="
+                padding: 15px 10px;
+                box-shadow: '0px 0px 7px #ccc';
+                margin-top: 15px;
+                border-radius: 5px;
+              "
+            >
+              Booking Id:
+              <span style="font-weight: 400">{{ booking._id }}</span>
+            </h6>
+            <h6
+              style="
+                padding: 15px 10px;
+                box-shadow: '0px 0px 7px #ccc';
+                margin-top: 20px;
+                border-radius: 5px;
+              "
+            >
+              Flight Id:
+              <span style="font-weight: 400">{{ booking.flightId }}</span>
+            </h6>
+
+            <h6
+              style="
+                padding: 15px 10px;
+                box-shadow: '0px 0px 7px #ccc';
+                margin-top: 15px;
+                border-radius: 5px;
+              "
+            >
+              Date:
+              <span style="font-weight: 400">{{ booking.createdAt }}</span>
+            </h6>
+            <h6
+              style="
+                padding: 15px 10px;
+                box-shadow: '0px 0px 7px #ccc';
+                margin-top: 15px;
+                border-radius: 5px;
+              "
+            >
+              Total Tickets:
+              <span style="font-weight: 400">{{ booking.tickets.length }}</span>
+            </h6>
+            <h6
+              style="
+                padding: 15px 10px;
+                box-shadow: '0px 0px 7px #ccc';
+                margin-top: 15px;
+                border-radius: 5px;
+              "
+            >
+              Total Cost:
+              <span style="font-weight: 400">{{ booking.totalCost }}</span>
+            </h6>
+          </div>
+
+          <div class="d-grid mt-3">
+            <button class="btn btn-primary" (click)="viewReceipt(booking)">
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
